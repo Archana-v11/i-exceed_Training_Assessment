@@ -27,7 +27,7 @@ class demothread5
 		sample obj2=new sample();
 		sample obj3=new sample();
 		obj1.start();
-		obj1.join(); //llows one thread to wait for the completion of another thread
+		obj1.join(); 
 		obj2.start();
 		obj3.start();
 		
