@@ -82,7 +82,7 @@ void main() {
   print("a >> b : ${a >> b}"); // rightshift
   
   print("");
-  print("7. TERNARY OPERATOR:");
+  print("7. TERNARY OPERATOR / CONDITIONAL OPERATOR:");
   int ternary1=10;
   int ternary2=10;
   var result=(ternary1==ternary2)?"Both are equal":"Both are not equal"; 
