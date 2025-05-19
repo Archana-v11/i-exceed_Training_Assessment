@@ -1,0 +1,99 @@
+void main() {
+  // 1. Declaring a String
+  String name="Welcome";
+  
+  // 2. Concatenate
+  String city="Bangalore";
+  print(name+" to");
+  print(name+" to "+city);
+  
+  // 3. isEmpty
+  print("Empty or Not? ${name.isEmpty}");
+  
+  // 4. isNotEmpty
+  print("Empty or Not? ${name.isNotEmpty}");
+  
+  // 5. Length
+  print("Length : ${name.length}");
+  
+  // 6. Uppercase
+  print("Uppercase : ${name.toUpperCase()}");
+  
+  // 7. Lowercase
+  print("Lowercase : ${name.toLowerCase()}");
+
+  // 8. hashCode
+  print("HashCode: ${name.hashCode}"); // returns integer hash code
+
+  // 9. codeUnits (ASCII codes)
+  print("ASCII Code : ${name.codeUnits}");
+  
+
+  // 10 . substring
+  String str = "Welcome to iexceed";
+  print("Substring: ${str.substring(8)}"); // to iexceed
+  print("Substring: ${str.substring(8, 10)}"); // to (end index is exclusive)
+
+  // 11. split
+  String fruits = "apple,mango,orange";
+  print(fruits.split(",")); // [apple, mango, orange]
+
+  // 12. trim
+  String str1 = "        Welcome to       ";
+  print("After Trimming : ${str1.trim()}"); // Welcome to
+
+  // 13. trimLeft
+  String str2 = "        Welcome to       ";
+  print("After Trimming LeftSide : ${str2.trimLeft()}"); // "Welcome to"
+
+  // 14. trimRight
+  String str3 = "        Welcome to       ";
+  print("After Trimming RightSide : ${str3.trimRight()}"); // "        Welcome to"
+
+  // 15. endsWith
+  print("EndsWith or Not ? ${str.endsWith("iexceed")}"); // true
+
+  // 16. startsWith
+  print("StartsWith or Not ? ${str.startsWith("Welcome")}"); // true
+
+  // 17. contains
+  print("Contains or Not ? ${str.contains("to")}"); // true
+
+  // 18. replaceAll
+  print("Replace : ${str.replaceAll("to", "you")}"); // Welcome you iexceed
+
+  // 19. compareTo
+  print("Comparing the Strings:");
+  print("apple".compareTo("banana")); // -1 (because apple < banana)
+  print("banana".compareTo("apple")); // 1  (because banana > apple)
+  print("apple".compareTo("apple"));  // 0
+}
+
+
+/*
+OUTPUT:
+
+Welcome to
+Welcome to Bangalore
+Empty or Not? false
+Empty or Not? true
+Length : 7
+Uppercase : WELCOME
+Lowercase : welcome
+HashCode: 89915883
+ASCII Code : [87, 101, 108, 99, 111, 109, 101]
+Substring: to iexceed
+Substring: to
+[apple, mango, orange]
+After Trimming : Welcome to
+After Trimming LeftSide : Welcome to       
+After Trimming RightSide :         Welcome to
+EndsWith or Not ? true
+StartsWith or Not ? true
+Contains or Not ? true
+Replace : Welcome you iexceed
+Comparing the Strings:
+-1
+1
+0
+*/
