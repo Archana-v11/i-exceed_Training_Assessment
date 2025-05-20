@@ -1,0 +1,27 @@
+void main() {
+  
+  // Constants
+  // 1. const - compile time constant
+  double val1=20.23;
+  const val2=2;//without datatype
+  const int val3=4;
+  double res1=val1+val2+val3;
+  print("Const in Constants: $res1");
+  //if i try to change val2 and val3 it cannot be changed
+  
+  // 2. final - run time constant
+  print("Final");
+  final date=DateTime.now();
+  print("Current Data and Time is : $date");
+  
+  
+}
+
+/*
+OUTPUT:
+
+Const in Constants: 26.23
+Final
+Current Data and Time is : 2025-05-20 10:35:22.140
+
+*/
