@@ -1,0 +1,76 @@
+void main() {
+  //functions
+  
+  // 1. Positional Parameters
+  print("Positional Parameters:");
+  void positionalparam(String name,int age)
+  {
+    print("Hello ${name}, your age is $age...");
+  }
+  positionalparam("Archana",21);
+  print("");
+  
+  // 2. Named Parameters
+  print("Named Parameters:");
+  void namedparam({String? name,int? age})
+  {
+    print("Hello $name,your age is $age...");
+  }
+  namedparam(name: "Archana",age: 21);
+  namedparam(name:"Priya");//it takes age as null
+  print("");
+  
+  // 3. Named Parameters with Default Values
+  print("Named Parameters with Default Values:");
+  void namedparamdefault({String name='Guest',int age=0})
+  {
+    print("Hello $name, your age is $age...");
+  }
+  namedparamdefault(name:"Archana",age:21);
+  namedparamdefault();//it takes default that is already declared
+  print("");
+  
+  // 4. Named Parameters with required value
+  print("Named Parameters with required values:");
+  void namedparamrequired({required String name,required int age})
+  {
+    print("Hello $name, your age is $age...");
+  }
+  namedparamrequired(name:"Archana",age:21);
+  // namedparamrequired(); -->this line gives the error because parameter need to be passed because we used required keyword
+  print("");
+  
+  // 5. Optional Positional Parameters
+  print("Optional Positional Parameters:");
+  void optionalpositionalparam(String name,[int? age])
+  {
+    print("Hello $name, your age is $age...");
+  }
+  optionalpositionalparam("Archana",21);
+  optionalpositionalparam("Priya");//it takes age as null
+  
+  
+}
+
+/*
+OUTPUT:
+
+Positional Parameters:
+Hello Archana, your age is 21...
+
+Named Parameters:
+Hello Archana,your age is 21...
+Hello Priya,your age is null...
+
+Named Parameters with Default Values:
+Hello Archana, your age is 21...
+Hello Guest, your age is 0...
+
+Named Parameters with required values:
+Hello Archana, your age is 21...
+
+Optional Positional Parameters:
+Hello Archana, your age is 21...
+Hello Priya, your age is null...
+
+*/
