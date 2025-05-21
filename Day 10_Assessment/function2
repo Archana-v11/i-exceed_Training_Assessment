@@ -1,0 +1,42 @@
+void main() 
+{
+  // Functions Part2  
+  // Normal Functions
+  print("Normal Functions");
+  var res=add(10,20);
+  print(res);  
+  print("");
+  
+  // 1. Lambda Functions
+  print("1. Lambda Functions");
+  var res2=multiply(10,20);
+  print(res2);
+  print("");
+  
+  // 2. Closure Functions
+  print("2. Closure Functions");
+  var res3=sub(20,10);
+  print(res3);
+  print("");
+  
+  // 3. Closure Functions without variable
+  print("3. ")
+  (x)
+  {
+    print(x.toUpperCase());
+  }("welcome");
+}
+  // Normal Functions
+  int add(int x,int y)
+  {
+    return x+y;
+  }
+
+  // Lamda Function
+  var multiply=(int x,int y) => x*y;
+
+  // Closure Functions
+  var sub=(int x,int y)
+  {
+    return x-y;
+  };
