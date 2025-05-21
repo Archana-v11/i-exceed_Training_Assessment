@@ -1,0 +1,102 @@
+void main() {
+  // Dart Functional Programming
+  // Normal function
+  print("Normal Function");
+  int add(int x,int y)
+  {
+    return x+y;
+  }
+  print(add(10,20));
+  print("");
+  
+  // 1. Passing a function to a variable
+  print("1. Passing a function to a variable");
+  String varfunc(String str)
+  {
+    return str;
+  }  
+  // print(varfunc("Welcome to i-exceed")); --> but this is normal function
+  // (or)
+  var res1=varfunc;
+  print(res1("Welcome to i-exceed"));
+  print("");
+  
+  // 2. Pass function as an argument to another function
+  print("2. Pass function as an argument to another function");
+  String upper(String str)
+  {
+    return str.toUpperCase();
+  }
+  String display(Function upp,String str)
+  {
+    return upp(str);
+  }
+  print(display(upper,"welcome"));
+  print("");
+  
+  print("Example 2 for passing function as an argument to another function");
+  int mul(int x,int y)
+  {
+    return x*y;
+  }
+  int display1(Function multiply,int x,int y)
+  {
+    return multiply(x,y);
+  }
+  print(display1(mul,20,2));
+  print("");
+  
+  // 3. Return function from another function
+  print("3. Return function from another function");
+  Function sample()
+  {
+    sample1()
+    {
+      print("Hello");
+    }
+    return sample1;
+  }
+  var res=sample();
+  res();
+  print("");
+  
+  print("Example 2 for Return function from another function");
+  Function add1(int x,int y)
+  {
+    int sub(int x,int y)
+    {
+      return y-x;
+    }
+    var d=x+y;
+    print("Addition: $d");
+    return sub;
+  }
+  var res3=add1(10,20);  
+  var ans=res3(10,20);
+  print("Subtraction: $ans");
+  
+}
+
+/*
+OUTPUT:
+
+Normal Function
+30
+
+1. Passing a function to a variable
+Welcome to i-exceed
+
+2. Pass function as an argument to another function
+WELCOME
+
+Example 2 for passing function as an argument to another function
+40
+
+3. Return function from another function
+Hello
+
+Example 2 for Return function from another function
+Addition: 30
+Subtraction: 10
+
+*/
