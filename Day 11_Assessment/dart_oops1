@@ -1,0 +1,37 @@
+class employee
+{
+  // Fields
+  String? name;
+  int? age;
+  String? design;
+  
+  //Constructor
+  employee()
+  {
+    name="Archana";
+    age=21;
+    design="Developer";
+  }
+  void displayStudent()
+  {
+    name="Dharshini"; // declaring in the method it takes this as a input
+    print("Name of the employee: $name");
+    print("Age of the employee : $age");
+    print("Designation: $design");
+  }
+}
+void main() 
+{
+  // employee e=new employee();
+  // This can also be given but dart also supports without using "new"
+  employee e=employee();
+  e.displayStudent();
+}
+
+/*
+
+OUTPUT:
+Name of the employee: Dharshini
+Age of the employee : 21
+Designation: Developer
+*/
