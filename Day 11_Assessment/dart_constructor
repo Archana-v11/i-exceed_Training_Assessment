@@ -1,0 +1,73 @@
+// Simple Constructor
+class Constructor {
+  Constructor() {
+    print("Default Constructor");
+  }
+  // Named Constructor
+  Constructor.fun(int x, int y) {
+    print(x + y);
+  }
+}
+
+// Giving private variable
+class A {
+  //(int? x) Giving ? means it is null so for int it takes as null value so if we do operations like addition etc null cannot be added to integer it gives error
+
+  int x = 0;
+  int y = 0;
+  A() {
+    print("Default Constructor");
+  }
+  A.fun2(int a, int b) {
+    this.x = a;
+    this.y = b;
+    print(x + y);
+  }
+}
+
+// Giving string as an argument
+class B {
+  String? name;
+  int? age;
+  B() {
+    print("Default Constructor");
+  }
+  B.fun3(String name, int age) {
+    print("Name : $name");
+    print("Age : $age");
+  }
+}
+
+void main() {
+  print("1. Simple Constructor");
+  Constructor();
+  Constructor.fun(10, 20);
+
+  print("");
+  print("2. Giving Private Variable");
+  A();
+  A.fun2(100, 200);
+  
+  print("");
+  print("3. String as an argument for Constructor");
+  B();
+  B.fun3("Archana",21);
+}
+
+/*
+OUTPUT:
+
+1. Simple Constructor
+Default Constructor
+30
+
+2. Giving Private Variable
+Default Constructor
+300
+
+3. String as an argument for Constructor
+Default Constructor
+Name : Archana
+Age : 21
+
+*/

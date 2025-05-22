@@ -1,0 +1,93 @@
+// GETTERS AND SETTERS
+// 1. Normal Getters and Setters
+class Student {
+  String _name = "";
+  int _age = 0;
+  String _dept = "";
+
+  void setName(String name) {
+    this._name = name;
+  }
+
+  void setAge(int age) {
+    this._age = age;
+  }
+
+  void setDept(String dept) {
+    this._dept = dept;
+  }
+
+  String getName() {
+    return _name;
+  }
+
+  int getAge() {
+    return _age;
+  }
+
+  String getDept() {
+    return _dept;
+  }
+}
+
+// 2. Dart Getters Setters using Arrow fuctions and get keyword
+class Employee {
+  String _name = "";
+  int _age = 0;
+  String _design = "";
+
+  void setName(String name) {
+    this._name = name;
+  }
+
+  void setAge(int age) {
+    this._age = age;
+  }
+
+  void setDesignation(String design) {
+    this._design = design;
+  }
+
+  // Using Arrow Function and using "get" keyword
+  String get getName => _name;
+  int get getAge => _age;
+  String get getDesignation => _design;
+}
+
+void main() {
+  // Normal Getters and Setters
+  print("1. Normal Getters and Setters");
+  Student s = Student();
+  s.setName("Archana");
+  s.setAge(21);
+  s.setDept("IT");
+  print(s.getName());
+  print(s.getAge());
+  print(s.getDept());
+  print("");
+
+  // Dart Special Getters and Setters
+  print("2. Dart Special Getters and Setters");
+  Employee e = new Employee();
+  e.setName("Dharshini");
+  e.setAge(22);
+  e.setDesignation("Developer");
+  print(e.getName);
+  print(e.getAge);
+  print(e.getDesignation);
+}
+
+/*
+OUTPUT:
+
+1. Normal Getters and Setters
+Archana
+21
+IT
+
+2. Dart Special Getters and Setters
+Dharshini
+22
+Developer
+
+*/
