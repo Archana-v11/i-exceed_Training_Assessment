@@ -1,0 +1,526 @@
+JAVA TRAINING:
+==============
+
+Day 1 - Training - 7/5/2025
+==============================
+
+1. What is the max value accomated by integer - 2^32-1
+2. What is the max value accomated by 8 bit - 0 to 255 that is 2^8
+3. What is bit and bytes
+4. What is num system
+
+Byte size = 8 Bits that is 2^8-1 = 2^7
+
+Short size = 16 Bits that is 
+
+To run java code:
+-----------------
+javac name.java
+java name
+
+Instance variable :
+----------------------
+1. Global variable 
+2. method outside and class inside it is declared 
+
+class variable:
+----------------
+1. Global variable 
+2. declared as static , method outside and class inside it is declared
+
+this :
+-------
+1. if instance variable and parameter is same this keyword is used 
+2. non static content only it is used and current object is used to refer
+3. it is also used to call the method name in the non static method
+
+Static variable :
+------------------
+1. belongs to the class and if a method is declared as static there is no need to create
+a object and memory is allocated only once
+
+Static method :
+----------------
+1. In the static method only static variable can be used this is also cannot be used
+2. but in NON STATIC METHOD both static and non static variable can  be used
+3. And while calling in the main method Non static method is called only by using objects
+4. And Static method is called without object also
+
+
+
+Day 2 - Training - 8/5/2025
+============================
+
+Higher-order functions :
+-----------------------
+1. functions that can take other functions as parameters or return functions as results.
+2. While Java doesn't directly support higher-order functions 
+
+Image - vector
+Audio - scalar
+
+SUPER :
+-------
+1. CONSTRUCTOR = super() --->  used to call the constructor of base class and it has to 
+                               be written first in derived class constructor
+2. METHOD = super.methodname() ---> is used to call the method of the super class
+3. VARIABLE = super.variable_name ---> is used to access the variables of the super class
+ 
+So SUPER is used for - Method,Variable and Constructor
+
+THIS:
+-----
+1. CONSTRUCTOR = this() ---> it is used to call the current class constructor
+2. METHOD = this.methodname() ---> it is used to call the current class method
+3. VARIABLE = this.instancevariable=localvariable ---> it is used to refer to current 
+              class instance variable and to diff instance variable and local variable
+
+IT IS DONE BY JVM = Creating object for only one last derived class is enough to
+print the output of the constructor of the base class
+
+POLYMORPHISM:
+=============
+METHOD OVERLOADING:
+--------------------
+Class can have many methods with same name but with diff parameter
+
+METHOD OVERRIDING:
+-------------------
+1. Dynamic method dispatch = it allows a superclass reference variable to refer to a
+subclass object
+2. Cannot override static methods
+3. Final Methods Cannot Be Overriden 
+
+
+ABSTRACTION:
+------------
+1. Abstract class cannot be instantiated(that is cannot create object)
+2. Instead we can extend the abstract class with another class
+3. If there is many methods in abstract class all the method should be overridden
+
+
+CASTING:
+---------
+UPCASTING - It involves converting a subclass object to a superclass reference
+
+POJO CLASS:(Plain Old Java Object) // refer the code
+------------
+1. It is a simple class that represents data. 
+2. It doesn't extend any specific classes or implement any interfaces, and it doesn't 
+have any special annotations
+3. Has a relationship
+
+AGGREGATION AND COMPOSITION:
+-----------------------------
+1. Weak Association - Aggregation implies a "has-a" relationship where the component 
+object can exist independently of the containing object.
+2. Strong Association - Composition is a stronger form of aggregation where the component 
+object is tightly bound to the containing object and cannot exist independently. 
+
+
+
+
+Day 3 - Training - 9/5/2025
+============================
+
+Multiple Inheritance :
+------------------------
+1. Java doesn't support multiple inheritance
+
+INTERFACE:
+----------
+1. It is same as Abstract class
+2. Instead of extends it uses "implements"
+3. If there 2 interface class then the 2 nd class can extends the 1 st class 
+and then normal class can implements the 2 nd class
+4. It can’t create an object
+5. If variable is declared in interface means it is static as well as final 
+and access specifer is publics so it cannot be changed
+
+
+ENCAPSULATION:
+--------------
+1. process of wrapping data (variables) and methods that operate on the data into 
+a single unit
+2. Declaring variable as private and method as public
+3. Declaring variable as private means that variable is immutable
+4. If any other class is extending the encapsuled class then the variables 
+cannot be changed
+5. So for security Encapsulation is done so that variables cannot be changed
+
+
+FUNCTIONAL INTERFACE:
+---------------------
+@FunctionalInterface - is used before interface class
+1. It is an interface that contains exactly one abstract method.
+
+LAMBDA EXPRESSION:
+-------------------
+1. It implement the only abstract function and implement functional interfaces
+
+PACKAGES IN JAVA:
+-----------------
+1. Package folder is created with the name of the package then u can have another file
+having
+class extending the class in the package folder
+
+
+
+Day 4 - Training - 12/5/2025
+============================
+
+NESTED CLASS:
+--------------
+1. A class thats inside another class
+2. Inner class has a access to used the outer class variable
+3. Static inner class has only access to static variables of the outer class 
+4. It can be static inner class and non - static inner class
+
+
+
+Day 5 - Training - 13/5/2025
+============================
+
+THREAD:
+--------
+1. it is a simple code
+Life cycle:
+   --> New State
+   --> Runnable State
+   --> Running State
+   --> Waiting State
+   --> Terminated State
+   
+sleep()-> to pause the execution of the current thread for a specified time in milliseconds
+join() -> llows one thread to wait for the completion of another thread
+
+MULTITHREADING:
+----------------
+1. Process of running multiple threads simultaneously
+
+
+PACKAGES IN JAVA:
+--------------------
+1. Built-in package = eg : java.lang,java.util,java.io etc
+2. User-defined package = Developers create these to organize their
+own classes and interfaces.
+
+Eg:
+1. javap java.io.DataInputStream - this is used to get all the methods available
+2. javap java.lang.Integer
+3. javap java.util.Scanner
+
+WRAPPER CLASS:
+--------------
+
+Primitive Type =    Wrapper Class
+int            =    Integer
+float          =    Float
+double         =    Double
+boolean        =    Boolean
+
+
+1. int a=Integer.parseInt(din.readLine());
+//to get the input as string and convert it to int again
+2. int b=Integer.valueOf(din.readLine()).intValue(); 
+// another method to get input as string and convert as int 
+3. float c=Float.valueOf(din.readLine()).floatValue();
+//to get the input as string and convert it to float again
+
+
+SYNCHRONIZATION:
+-----------------
+1. It is a mechanism that controls the access of multiple threads to shared resources. 
+2. It ensures that only one thread can access a synchronized block or method at a time.
+
+
+
+Day 6 - Training - 14/5/2025
+============================
+
+STREAMS :
+-----------
+1. to perform java input and output operations through streams
+2. Input Stream - reads data
+3. Ouput Stream - writes data
+
+Types of Streams:
+-----------------
+
+---> ByteStream
+---> CharacterStream
+
+1. BYTESTREAM :
+----------------
+   * FileInputStream: Reads bytes from a file.
+   * BufferedInputStream: Provides buffering for efficient reading.
+   * ByteArrayInputStream: Reads bytes from a byte array.
+   * PipedInputStream
+   * ObjectInputStream
+   * DataInputStream
+   * FilterInputStream
+   * PushBackInputStream
+   * FileOutputStream: Writes bytes to a file.
+   * BufferedOutputStream: Provides buffering for efficient writing.
+   * ByteArrayOutputStream: Writes bytes to a byte array.
+   * PipedOuputStream
+   * ObjectOutputStream
+   * DataOutputStream
+   * FilterOutputStream
+   * PushBackOutputStream
+
+
+2. CHARACTERSTREAM :
+--------------------
+   * BufferedReader	: It is used to handle buffered input stream.
+   * FileReader	: This is an input stream that reads from file.
+   * InputStreamReader	: This input stream is used to translate byte to character.
+   * OutputStreamReader	: This output stream is used to translate character to byte.
+   * Reader	: This is an abstract class that define character stream input.
+   * PrintWriter : This contains the most used print() and println() method
+   * Writer	: This is an abstract class that define character stream output.
+   * BufferedWriter	: This is used to handle buffered output stream.
+   * FileWriter	: This is used to output stream that writes to file.
+
+
+OBJECTOUTPUTSTREAM:
+1. Serialization - the objects is converted to byte stream and stored in file
+2. Static variable cannot be serialized
+3. And if any variable (eg:password) not needed to serialize means use the keyword : 
+   "  transient String password; "
+
+OBJECTINPUTSTREAM:
+1. Deserialization - again converting byte stream back to object
+
+
+BUFFEREDINPUTSTREAM:
+1. There will be 8192 internal bytes in this
+2. adds functionality to another input stream
+3. to support the mark and reset methods.
+
+DATAINPUTSTREAM:
+1. it is used to read primitive Java data types from an underlying input stream
+
+DATAOUTPUTSTREAM:
+1. it is used to write primitive Java data types to an output stream.
+
+READER :
+1. It is an abstract class used for reading character streams.
+
+FILEREADER:
+1. It is used to read data in the character format from the file
+
+BUFFEREDREADER:
+1. is used to read data in the form of character more efficiently
+2. markSupported()-Tells whether this stream supports the mark() operation, which it does.
+3. mark()-Marks the present position in the stream and reset() will attempt to 
+reposition the stream to this point.
+
+STRINGREADER:
+1. It allows a string to be read as a character stream
+
+
+
+Day 7 - Training - 15/5/2025
+============================
+
+INTER THREAD COMMUNICATION:
+---------------------------
+1. allowing synchronized threads to communicate with each other.
+
+ARRAYLIST:
+----------
+1. It is a resizable array ie) size can be modified
+2. It uses index to store elements
+3. To print Arraylist - 2 methods ==> Iterator , For-Each
+4. It will accept duplicate elements
+
+LOAD FACTOR IN ARRAYLIST:
+------------------------
+1. The default load factor is 0.75
+2 the measure that decides when to increase the capacity of the list
+
+ITERATOR:
+----------
+1. is an interface that enables traversal through the elements of a collection
+2. Primary methods are hasNext(),next(),remove() used to  to loop through collections
+and perform manipulation
+
+STRING CONSTANT POOL:
+---------------------
+1. When the compiler encounters a string literal, it checks if an identical string already
+exists in the SCP.
+2. If found, the existing string's reference is used. 
+3. Otherwise, a new string object is created in the SCP, and its reference is used. 
+4. It is a part of the Heap memory
+
+String Literal :
+------------------
+1. stored in String constant pool 
+2. its is immutable
+3. Declaring using String Literal ==> String s = “Apple”;
+
+String Object :
+---------------
+1. stored in Heap memory as well as String constant pool 
+2. it is also immutable but can be changed with the help of StringBuilder or other methods
+3. Declaring using String Object ==> String s=new String("Apple");
+
+STRING BUFFER:
+--------------
+1. It is synchronized
+2. It is a thread safe class
+3. It is faster than builder
+
+STRING BUILDER:
+----------------
+1. It is not synchronized
+2. It is not a thread safe class
+3. It is slower than buffer
+
+intern() method:
+----------------
+1. When the intern() method is called on a String, it checks if a string with the 
+same content exists in the String Constant Pool (SCP). 
+2. If it does, the method returns a reference to that string in the SCP. 
+3. If not, it adds the string to the SCP and returns a reference to the newly added string.
+
+
+Day 8 - Training - 16/5/2025
+============================
+
+
+MEMORY MANAGEMENT:
+-----------------
+1. Process of allocation and de-allocation of objects
+2. It does memory management automatically
+3. Uses an automatic memory management system called "Garbage Collector"
+
+Method area in memory management:
+----------------------------------
+1. It is a part of the heap memory which is shared among all the threads. 
+2. It is used to store class structure, superclass name, interface name, and constructors.
+3. It is also known as "MetaSpace" newer version replacing permanent generation "Permgen"
+4. It is a part of the JVM memory that stores class-level information,
+including the bytecode of loaded classes, field and method data, constant pool , 
+String pool , and other reflective information. 
+5. It does not have an explicit size limit by default and expands dynamically. 
+
+Heap Area in memory management:
+------------------------------
+1. It stores the actual Object
+2. When a "new" Keyword is used,the JVM creates a new istance in Heap
+3. When heap becomes full garbage is collected
+4. Older generation - major gc & Younger Generation - minor gc
+5. Permanent objects means major garbage collector(GC) ie)Older generation
+6. Temporary means Eden space which is further divided into S1,S2
+7. If Eden space is full means then moved to Survivor Spaces ===> S0,S1 
+this process is called Minor GC
+8. Heap is divided into the following parts:
+	* Young generation
+	* Survivor space
+	* Old generation
+	* Permanent generation & Code Cache
+
+Stack in memory management:
+----------------------------
+1. Each thread in a Java program has its own stack, which is used for tracking method 
+invocations and managing local variables. 
+2. The stack memory is used to store method frames, which contain information about method 
+parameters, local variables, and intermediate results.
+3. The stack operates on a Last-In-First-Out (LIFO) principle. 
+
+PC REGISTERS:
+-------------
+1. Holds the address of the currently executing instruction. 
+2. This register is part of the JVM memory. 
+
+
+
+LINKEDLIST:
+-----------
+1. It is a part of the Collection framework present in java.util package
+2. It can contain duplicates elements 
+3. Maintains the insertion order
+4. Non Synchronized
+5. Manipulation is faster 
+6. Memory location for elements in linkedlist is not contiguous
+
+LINKEDLIST - methods of Traversing : 
+-----------------------------------
+1. Iterator - traversing collections in a forward direction ie) from the begining to end
+2. Spliterator - used to iterate elements one-by-one from a List
+3. ListIterator - traversing collections in both forward and backward direction
+                Forward -> hasNext()
+                Backward -> hasPrevious()
+4. For Each
+               
+STACK:
+------
+Stack Operations:
+----------------
+push(): Insert a new element into the stack(i.e insert a new element at the beginning)
+pop(): Return the top element of the Stack (i.e delete the first element )
+peek(): Return the top element.
+display(): Print all elements in Stack.
+
+
+SET:
+-----
+
+(i) HASHSET:
+----------
+1. used to store the unique elements.
+2. doesn't maintain any specific order of elements. 
+3. Can store the Null values.
+
+(ii) LINKED HASH SET:
+----------------
+1. It combines the functionality of a HashSet with a LinkedList to maintain the insertion order of elements.
+2. Stores unique elements only.
+3. Maintains insertion order.
+4. Provides faster iteration compared to HashSet.
+5. Allows null elements 
+
+(iii) TREESET:
+--------
+1. Uses a Red-Black Tree (self-balancing binary search tree) for internal storage.
+2. Does not allow duplicate elements 
+3. Does not allow null elements 
+
+MAP:
+-----
+
+(i) HASHMAP:
+--------
+1. Uses a hash function to map identifying values, known as keys, to their associated values
+2. It contains "key-value" pairs and allows retrieving value by key. 
+3. Allows to store the null keys
+4. Duplicate keys are not allowed 
+5. HashMap uses keys in the same way as an Array uses an index.
+6. HashMap stores data in (key, value) pairs.
+7. Each key is associated with a value, and you can access the value by using the corresponding key.
+
+(ii) LINKED HASH MAP:
+----------------
+1. It stores key-value pairs while maintaining the insertion order of the entries. 
+2. It maintains the order in which elements are added.
+3. Stores unique key-value pairs.
+4. Maintains insertion order.
+5. Allows one null key and multiple null values.
+6. Fast performance for basic operations
+
+(iii) TREEMAP:
+--------
+1. Stores key-value pairs in sorted order
+2. Does not allow null keys
+3. Null values are allowed
+4. Uses a Red-Black Tree (self-balancing binary search tree) for internal storage
+5. Entries are sorted automatically
+
+
+
+
+
+
+
