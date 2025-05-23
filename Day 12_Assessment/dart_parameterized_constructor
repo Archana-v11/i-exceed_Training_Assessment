@@ -1,0 +1,32 @@
+class Student
+{
+  String? name;
+  int? age;
+  String? city;
+  Student(
+    {
+    this.name,
+    this.age,
+    this.city
+    }
+  );
+  void display()
+  {
+    print("Name: $name");
+    print("Age: $age");
+    print("City: $city");
+  }
+}
+void main() {
+  Student s=new Student(name:"Archana",age:21,city:"Coimbatore");
+  s.display();
+}
+
+/*
+OUTPUT:
+
+Name: Archana
+Age: 21
+City: Coimbatore
+
+*/

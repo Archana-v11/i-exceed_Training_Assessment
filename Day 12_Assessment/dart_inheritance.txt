@@ -1,0 +1,48 @@
+// Inheritance
+// Base class
+class Person
+{
+  String name="";
+  int age=0;
+  String city="";
+  // Here Default Constructor 
+  // Person(){} cannot be used because there is already parameterized Constructor
+  Person(String name,int age,String city)
+  {
+    this.name=name;
+    this.age=age;
+    this.city=city;
+  }
+}
+
+// Derived Class
+class Employee extends Person
+{
+  String design="";
+  Employee(String name,int age,String city,String design):super(name,age,city)
+  {
+    this.design=design;
+  }
+  void display()
+  {
+    print("Name: $name");
+    print("Age: $age");
+    print("City: $city");
+    print("Designation: $design");
+  }
+}
+void main() {
+  Employee e=new Employee("Archana",21,"Coimbatore","Software Developer");
+  e.display();
+}
+
+
+/*
+OUTPUT:
+
+Name: Archana
+Age: 21
+City: Coimbatore
+Designation: Software Developer
+
+*/
