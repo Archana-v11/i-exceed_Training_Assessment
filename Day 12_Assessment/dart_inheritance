@@ -32,7 +32,7 @@ class Employee extends Person
   }
 }
 void main() {
-  Employee e=new Employee("Archana",21,"Coimbatore","Software Developer");
+  Employee e=Employee("Archana",21,"Coimbatore","Software Developer");
   e.display();
 }
 
