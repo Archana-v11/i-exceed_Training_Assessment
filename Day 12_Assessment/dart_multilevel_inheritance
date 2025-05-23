@@ -1,0 +1,60 @@
+// Base class
+class Vehicle {
+  String brand="";
+  String color="";
+
+  Vehicle(String brand,String color)
+  {
+    this.brand=brand;
+    this.color=color;
+  }
+
+  void showBrand() {
+    print("Brand of the Vehicle: $brand");
+    print("Color of the Vehcicle: $color");
+  }
+}
+
+// Intermediate class
+class Car extends Vehicle {
+  String model="";
+
+  Car(String brand,String color,String model) : super(brand,color)
+  {
+    this.model=model;
+  }
+
+  void showModel() {
+    showBrand();
+    print("Model: $model");
+  }
+}
+
+// Derived class
+class ElectricCar extends Car {
+  int batteryCapacity;
+
+  ElectricCar(String brand, String color,String model, this.batteryCapacity)
+      : super(brand,color, model);
+
+  void showDetails() {
+    showModel();
+    print("Battery Capacity: $batteryCapacity kWh");
+  }
+}
+
+// Main function
+void main() {
+  ElectricCar obj= ElectricCar("Tesla","White", "Model S", 100);
+  obj.showDetails();
+}
+
+/*
+OUTPUT:
+
+Brand of the Vehicle: Tesla
+Color of the Vehcicle: White
+Model: Model S
+Battery Capacity: 100 kWh
+
+*/
