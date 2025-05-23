@@ -1,9 +1,9 @@
 // Base class
 class Vehicle {
-  String brand="";
-  String color="";
+  String? brand;
+  String? color;
 
-  Vehicle(String brand,String color)
+  Vehicle(String? brand,String? color)
   {
     this.brand=brand;
     this.color=color;
@@ -17,9 +17,9 @@ class Vehicle {
 
 // Intermediate class
 class Car extends Vehicle {
-  String model="";
+  String? model;
 
-  Car(String brand,String color,String model) : super(brand,color)
+  Car(String? brand,String? color,String? model) : super(brand,color)
   {
     this.model=model;
   }
@@ -32,10 +32,13 @@ class Car extends Vehicle {
 
 // Derived class
 class ElectricCar extends Car {
-  int batteryCapacity;
+  int? batteryCapacity;
 
-  ElectricCar(String brand, String color,String model, this.batteryCapacity)
-      : super(brand,color, model);
+  ElectricCar({String? brand, String? color,String? model, int? batteryCapacity})
+  : super(brand,color, model)
+  {
+       this.batteryCapacity=batteryCapacity; 
+  }
 
   void showDetails() {
     showModel();
@@ -45,9 +48,10 @@ class ElectricCar extends Car {
 
 // Main function
 void main() {
-  ElectricCar obj= ElectricCar("Tesla","White", "Model S", 100);
+  ElectricCar obj= ElectricCar(brand:"Tesla",color:"White", model:"Model S", batteryCapacity:100);
   obj.showDetails();
 }
+
 
 /*
 OUTPUT:
