@@ -1,0 +1,27 @@
+// Define a mixin
+mixin Logger {
+  void log(String message) {
+    print("LOG: $message");
+  }
+}
+
+// A class that uses the Logger mixin
+class MyApp with Logger {
+  void run() {
+    log("App is starting...");
+    print("App is running.");
+    log("App has finished running.");
+  }
+}
+
+void main() {
+  MyApp app = MyApp();
+  app.run();
+}
+
+/*
+OUTPUT:
+LOG: App is starting...
+App is running.
+LOG: App has finished running.
+*/

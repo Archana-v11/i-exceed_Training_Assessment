@@ -1,0 +1,22 @@
+mixin A {
+  void a() => print("A");
+}
+ 
+mixin B {
+  void b() => print("B");
+}
+ 
+class MyClass with A, B {}
+ 
+void main() {
+  MyClass c = MyClass();
+  c.a(); // A
+  c.b(); // B
+}
+
+/*
+OUTPUT:
+
+A
+B
+*/

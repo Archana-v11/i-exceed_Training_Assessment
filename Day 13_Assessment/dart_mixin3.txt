@@ -1,0 +1,36 @@
+// A base class
+class Vehicle {
+  void startEngine() {
+    print("Engine started.");
+  }
+}
+
+// Mixin that can only be applied to Vehicle or its subclasses
+mixin Logger on Vehicle {
+  void logStart() {
+    print("LOG: Starting the engine...");
+    startEngine(); // Allowed because 'on Vehicle' gives access to startEngine()
+  }
+}
+
+// A class that extends Vehicle and uses the Logger mixin
+class Car extends Vehicle with Logger {
+  void drive() {
+    print("Driving the car...");
+  }
+}
+
+void main() {
+  Car myCar = Car();
+  myCar.logStart(); // Calls the mixin method that uses Vehicle's method
+  myCar.drive();    // Calls a method defined in Car
+}
+
+/*
+OUTPUT:
+
+LOG: Starting the engine...
+Engine started.
+Driving the car...
+
+*/
