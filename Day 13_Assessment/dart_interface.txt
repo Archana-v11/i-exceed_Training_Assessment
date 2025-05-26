@@ -1,0 +1,50 @@
+// Interface declaration
+abstract class Shape {
+  double area();
+  double perimeter();
+  // all the method declared here need to be overriden in the implemented class
+}
+
+// Implementing the interface
+class Circle implements Shape {
+  dynamic radius;
+  Circle({this.radius});
+
+  @override
+  double area() => 3.1416 * radius * radius;
+
+  @override
+  double perimeter() => 2 * 3.1416 * radius;
+}
+
+// Implementing the interface
+class Rectangle implements Shape {
+  double width, height;
+  Rectangle(this.width, this.height);
+
+  @override
+  double area() => width * height;
+
+  @override
+  double perimeter() => 2 * (width + height);
+}
+
+void main() {
+  Shape c = Circle(radius:5);
+  Shape r = Rectangle(4, 6);
+
+  print("Circle Area: ${c.area()}");
+  print("Circle Perimeter: ${c.perimeter()}");
+
+  print("Rectangle Area: ${r.area()}");
+  print("Rectangle Perimeter: ${r.perimeter()}");
+}
+
+/*
+OUTPUT:
+
+Circle Area: 78.54
+Circle Perimeter: 31.416
+Rectangle Area: 24
+Rectangle Perimeter: 20
+*/
