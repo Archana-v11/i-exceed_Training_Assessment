@@ -1,0 +1,1335 @@
+FLUTTER:
+==========
+
+" TO OPEN NEW TERMINAL: "Alt+F12"
+
+TO CREATE PROJECT :
+--------------------
+
+1. File -> New -> New Flutter Project -> Give the correct Flutter sdk path -> Give name for the project -> next -> Finish
+
+2. In the right side click the "Device Manager" -> In the Medium Phone API 36 -> click the play button -> 
+
+3. In the Flutter Device Selection -> select the "Medium Phone API 36" -> And then click the "Run" Button
+
+4. Then if there is no error APP Runs "
+
+Test File in Andriod Studio:
+----------------------------
+It should end with name_test.dart
+3 Types of test:
+	Unit
+	Widget
+	Integration
+
+DAY 1 - TRAINING - 27/5/2025
+==============================
+
+WHAT IS FLUTTER :
+------------------
+Flutter is an open-source UI software development kit created by Google, used for building mobile, web, and desktop applications from a single codebase
+
+FEATURES:
+-----------
+	# Cross Platform
+	# Single codebase
+	# Open Source and free
+	# Dart Programming Language
+	# Access to Native Features
+	# Integration with existing code
+	# Scalability
+	
+
+CTRL+Space -> to get all the properties
+After making changes click "HOT RESTART"
+
+"stless: Gives the class for statelesswidget"
+
+MATERIAL APP WIDGET: (material m3.io - in google)
+-------------------------------------------------
+
+
+MaterialApp ==> title,theme,(home->scaffold)
+
+Again:
+
+scaffold (there is many widget) ===>  Appbar(1 st widget),body(2 nd widget),drawer(3 rd widget) etc.....
+
+Theme takes ThemeData Class-> Brightness ,  scaffoldBackgroundColor , primaryColor etc..
+
+"centerTitle - true" means to make text center
+
+WIDGETS:
+-----------
+
+Child - single widget with many properties like adding text etc..
+
+Container has one widget alone => with properties like width,height,one child alone (no many child is included in container) etc
+
+if needed "many container" wrap it  with column/row whatever is needed and with Childern
+
+"Column/row -> Children -> Many Container"
+
+
+DAY 2 - TRAINING - 28/5/2025
+==============================
+
+LIST TILE:
+--------------
+
+3 Sections:
+------------
+Start - leading widget
+center - title,sub title
+end - trailing widget
+
+leading -> icon (Icon(Icons.person)), circleAvatar(inside this child can be there)
+
+leading -> circleAvatar->child->Icon->Icons
+
+trailing ->icon
+
+"ListView -> Children -> Many List Tile"
+
+For Padding , ContentPAdding -> EdgeInsets.all()
+
+dense
+
+isThreeLine -> padding 
+
+enabled
+
+onTap
+
+onLongPress
+
+iconColor -> is used when the leading is icon
+
+textColor -> for the text inside the listTile
+
+hoverColor -> Only browser supports not the mobile
+
+horizontalTileGap -> gap b/w titles and the leading/trailing widgets
+
+minLeadingWidth ->
+
+shape -> RoundedRectangle()
+
+
+LIST VIEW:
+------------
+It is a scrollable list of widgets arranged linerly
+
+"ListView -> Children -> Many Container / Many List Tile"
+
+List view is wrapped with widget -> SizedBox with height
+
+scrollDirection -> Axis.vertical / Axis.horizantal
+
+Physics : 
+-----------
+After scrolling effects at last
+List view -> Physics 
+			* ScrollPhysics
+			* BouncingScrollPhysics
+			* NeverScrollableScrollPhysics
+			
+
+List view -> reverse -> true/false
+
+List view -> padding->EdgeInsets.all()
+
+itemExtent:
+-----------
+If each container has diff size ie with diff height and width: 
+
+itemExtent:100.0 // now all the container have same size
+
+prototypeItem:
+---------------
+If each container has diff size ie with diff height and width:
+
+List view -> prototypeItem:const SizedBox(height:100.0,width:200.0)
+
+
+
+DAY 3 - TRAINING - 29/5/2025
+==============================
+
+Padding - 3 ways
+To make Text center in container - 3 ways
+
+How to populate the data from the class to flutter?
+--------------------------------------------------
+1. Creation of Model Class - with the properties(eg:name,age,loc)
+2. Creating flutter widget
+
+
+LISTVIEW.BUILDER:
+-----------------
+
+ListView.builder()
+
+The builder() constructor constructs a repeating list of widgets. The constructor takes two main parameters:  
+
+	* ITEMCOUNT
+	* ITEMBUILDER
+	
+itemCount:
+----------
+	It is for the number of repetitions for the widget to be constructed (not compulsory).
+
+itemBuilder:
+-----------	
+	It is for constructing the widget which will be generated 'itemCount' times (compulsory).
+
+PROPERTIES:
+-------------
+
+1. itemBuilder -> callback function like
+ 
+			itemBuilder:(BuildContext context,int index){
+				return getmyteam(index);//eg
+			}
+			
+			Widget getmyteam(int index){}
+
+2. itemCount- -> defines the no . of items in the list , specifies how many times the itemBuilder function is called
+
+
+3. scrollDirections
+
+4. physics
+
+5. cacheExtent
+
+
+LISTVIEW SEPARATOR:
+---------------------
+# In Flutter, the ListView Separated widget is used to display a scrollable list of items, where each item is separated by a specified divider widget
+
+# The ListView.separated() constructor is used to generate a list of widgets, but in addition, a separator widget can also be generated to separate the widgets. In short, these are two intertwined list of widgets: the main list and the separator list. Unlike the builder() constructor, the itemCountparameter is compulsory here.
+
+PROPERTIES:
+-----------
+
+1. itemBuilder(BuildContext context,int index) returns widget(eg:listtile)
+
+2. separatorBuilder(BuildContext context,int index)
+	 return Divider(height:1)
+
+3. itemCount:pro.length
+
+
+
+ANIMATED ALIGN WIDGET: (stateful widget)
+------------------------
+
+alignment
+
+duration
+
+curve
+
+child
+
+
+
+DAY 4 - TRAINING - 02/6/2025
+==============================
+
+LAZY LOADING:
+--------------
+# Lazy loading, sometimes referred to as "on-demand loading," is a design pattern that loads data, images, widgets, or even entire modules only when necessary
+
+
+EXPANDED WIDGET:
+-----------------
+# to fill all the available space
+# A child widget or children widgets to take all the available space along the main-axis
+# Wrapping expanded with another widget gives error
+# Rather than wrapping the child of the expanded widget works fine
+
+Constructor of Expanded class:
+--------------------------------
+
+const Expanded(
+{
+Key? key,
+int flex: 1, // default is 1
+required Widget child
+}
+)
+
+Eg:
+If there is a container -> wrap with widget -> then change the widget name as "Expanded"
+
+
+
+ERRORS:
+--------
+1. RENDER FLEX OVERFLOW:
+-----------------------
+# It happens when there is Multiple Images,Image with Text
+
+#  A RenderFlex overflow occurs when a widget inside a Flex widget (such as a Row or Column) exceeds the available space along the main axis (horizontal for Row, vertical for Column) and cannot be resized or wrapped.
+
+# This error can be rectified by Wrapping the container with "Expanded"
+
+2. UNBOUNDED HEIGHT ISSUES:
+-----------------------------
+
+# In Flutter, an "unbounded height" error (also called unconstrained height or infinite height) happens when a widget is asked to grow vertically but has no upper limit to how tall it can be.
+
+# What It Means:
+	It means your widget (usually a scrollable, like ListView, Column, or SingleChildScrollView) is placed inside a parent that doesn't tell it how tall it can be, so it keeps growing infinitely, causing a layout failure.
+
+spacer() -> automatically gives space between 2 or more conatiner
+
+TEXT WIDGET:
+--------------
+	1. maxlines (takes integer value)
+	2. textAlign (left,right,center,justify)
+	3. textDirection (right to left,left to right)
+	4. overflow (ellipsis,fade
+	5. softWrap
+	6. style
+	
+	
+STYLE:
+--------
+style -> TextStyle->several properties
+
+	1.  fontSize (integer value)
+	2.  fontFamily (serif,sans serif,monospace etc....)
+	3.  color
+	4.  backgroundColor
+	5.  fontWeight (bold etc...)
+	6.  letterSpacing
+	7.  wordSpacing
+	8.  fontStyle (normal,italic)
+	9.  decoration->TextDecoration (overline,lineThrough,underline)
+	10. decorationColor
+	11. decorationThickness (double value)
+	12. decorationStyle->TextDecorationStyle(double,dashed,dotted, wavy)
+	13. shadows->Shadow(color,offset,blurRadius)
+	
+	
+TEXT.RICH VS RICHTEXT WIDGET:
+-------------------------------
+
+TEXT.RICH:
+-----------
+# It is a constructor of text widget
+# Uses a TextSpan to define the text and its style
+# Text.rich automatically applies the default text style
+
+Properties:
+---------------
+body->
+Text.rich ->if its 1 TextSpan 
+
+if there is many textspan:
+body->
+Text.rich ->children -> many textSpan
+
+	1. text
+	2. style -> textstyle -> then all properties metioned above already
+	3. children[] -> textSpan() -> text,style
+	4. recognizer -> TapGestureRecognizer()..onTap=(){}
+
+if there is many textspan
+body->
+Text.rich ->children -> many textSpan
+
+RICH TEXT:
+------------------
+# A separate widget for displaying text with multiple styles.
+# Need to explicitly define the default text style using the style parameter.
+# Also uses TextSpan to define the text and its style.
+
+RichText->TextSpan
+
+
+DAY 5 - TRAINING - 03/6/2025
+==============================
+
+CARD WIDGET:
+--------------
+
+# It is a material design component used to present related information in a visually appealing and structured manner
+
+# It serves as a container for content and actions related to a single topic . 
+
+# Often used to display images,text and interactive elements like button
+
+PROPERTIES:
+-----------
+
+1. Color
+2. elevation
+3. shadowColor
+4. child -> Container(all properties of container)
+5. shape -> RoundedRectangleBorder -> BorderRadius
+         -> side -> BorderSide(color,width,style)
+6. borderOnForeground -> Boolean
+7. clipBehavior -> Clip.hardEdge/none/antiAliasWithSaveLayer/antiAlias
+8. semanticContainer -> Boolean
+
+
+POSITIONED & STACK:
+---------------------------
+
+POSITIONED:
+-----------
+
+# Allow us to place a widget at a desired position inside the stack
+# It must be a descendant(direct child) of Stack Widget
+# It cannot be used other than Stack Widget
+# Stack is the parent widget of positioned widget
+
+PROPERTIES:
+-----------
+1. child
+2. left
+3. right
+4. width -> left,right,width deals with " horizontal axis "
+5. top
+6. bottom
+7. height -> top,bottom,height deals with " vertical axis "
+
+
+body -> Stack -> children[] -> any no of container -> 
+	container is wrapped with positioned -> 
+	then all the properties of positioned can be used for that particular container
+
+" Positioned Properties takes the higher priority than the Child Container "
+
+
+STACK:
+-------
+# Allows us to overlap multiple widgets
+# Allows us to position child widgets relative to the edge of the stack widget
+
+2 Types of child widgets:
+	! Positioned Widgets
+	! Non-positioned Widgets
+	
+PROPERTIES:
+------------
+1. clipBehavior
+2. alignment
+3. fit -> stackFit->loose/expand
+4. overflow ->Overflow.clip(default)/visible
+5. textDirection
+6. children
+
+body -> Stack -> children[] -> any no of container -> 
+	container is wrapped with positioned -> 
+	then all the properties of positioned can be used for that particular container
+
+expand in fit -> is applicable only for the non-positioned widgets 
+
+
+DIVIDER:
+---------
+# It is a horizontal line that separates content in the apps user interface 
+# It is used when you have multiple child and want to separate by the line or divider
+
+DIVIDER PROPERTIES:(COLUMN)
+---------------------------
+1. color
+2. height
+3. thickness
+4. indent
+5. endindent
+
+If the containers are wrapped with Column -> Divider()
+It the containers are wrapped with row -> VerticalDivider()
+
+VERTICAL DIVIDER PROPERTIES:(ROW)
+----------------------------------
+1. color
+2. width
+3. thickness
+4. indent
+5. endindent
+
+
+CIRCULAR AVATAR WIDGET:
+-----------------------
+# It is simply a circle in which we can add background color, background image, or just some text
+
+PROPERTIES:
+-------------
+1. child -> can be text,image,icon etc..
+2. radius -> default size is 20
+3. minradius
+4. maxradius -> default is double.infinity
+5. backgroundcolor
+6. foregroundcolor
+7. backgroundimage -> AssetImage()
+8. foregroundimage -> AssetImage()
+
+
+body -> CircleAvatar
+
+If radius is added minradius and maxradius cannot be added
+
+To add backgroundImage in circleAvatar => 
+	CircleAvatar -> backgroundimage -> AssetImage('asset path')
+
+To add image over the backgroundImage =>
+	CircleAvatar -> foregroundimage -> AssetImage('asset path')
+
+We can wrap circleAvatar to another circleAvatar
+
+
+
+DAY 6 - TRAINING - 04/6/2025
+==============================
+
+SIZEDBOX:
+---------
+# It is used to create a box of a specified size,either to add spacing b/w widgets or to contrain the size of a child widget
+
+# It is more versatile widget for controlling dimension and creating well-structured layouts
+
+USES:
+------
+	* Adding spacing
+	* Controlling size
+	* Creating fixed dimension
+
+
+PROPERTIES:
+-----------
+1. child
+2. height
+3. width
+
+SizedBox.expand:
+----------------
+# This SizedBox widget allows it to be as big as the parent widget allows it to be. 
+
+PROPERTIES:
+-----------
+1. child
+
+SizedBox.fromSize:
+-----------------
+# This allows the creation of a SizedBox with a specified size.
+
+PROPERTIES:
+------------
+1. child
+2. size(width,height)
+
+SizedBox.shrink:
+-----------------
+# This implementation of the widget allows it to be as small as the child widget allows it to be. 
+
+PROPERTIES:
+----------
+1. child
+
+HOW EXPAND AND SHRINK WORK?
+---------------------------
+
+Eg:
+1. If there is a elevatedbutton wrap that button with SizedBox.expand.shrink,
+
+2. then again wrap that button with Widget called ConstrainedBox -> constratints -> BoxConstraints -> which intakes the properties,
+
+	# minWidth
+	# minHeight
+	# maxWidth
+	# maxHeight
+ 
+If SizedBox.expand is wrapped it takes the maxWidth as Width and maxHeight as height
+
+If SizedBox.shrink is wrapped it takes the minWidth as Width and minHeight as height
+
+
+NATIVE SPLASH SCREEN:
+---------------------
+
+# It refers to the screen displayed before the flutter application itself start running
+
+# It is the first screen that we see when we run our application. It is also known as Launch Screen
+
+# Its built using native technologies of the target platform
+ 
+# ensuring it appears immediately upon app launch
+ 
+# This is called Native,because its not a part of flutter UI but rather a
+native component of the platform
+ 
+# Its a configuration file used in flutter project to manage dependencies, assets and
+project metadata
+ 
+# Its like a project "instruction manual" specifying what yoour app need and how it
+should be configured
+ 
+1.Dependency management
+2.Assest Management
+3.Project metadata
+4.Format and Syntax
+
+
+PADDING:
+--------
+
+# It doesn't have its own physical apperance
+# It is used to add space around a child widget, effectively creating padding or margins
+
+PROPERTIES:
+------------
+1. padding
+2. child
+
+Padding -> EdgeInsetsGeometry 
+
+			-> EdgeInsets.all(int) / symmetric(horizontal,vertical) / only(right,top,left,bottom) / fromLTRB(left,top,right,bottom)
+			
+			-> EdgeInsetsDirectional.fromSTEB(start,top,end,bottom) /all(int) / only(start,top,end,bottom)
+
+
+
+DAY 7 - TRAINING - 05/6/2025
+==============================
+
+IMAGE WIDGET:
+-------------
+1. ImageProvider
+2. asset
+3. network
+4. file
+5. memory
+
+1. IMAGE ASSET:
+-----------------
+# Image.asset() is used to display images that are bundled within the application itself 
+
+PROPERTIES:
+-----------
+	
+* Height
+* Width
+* color
+* errorBuilder->(BuildContext c,Object error,StackTrace? s)
+	{
+		return child: Text("No such image");
+	}
+* repeat-> ImageRepeat.repeatX / repeatY / repeat / noRepeat
+* alignment -> Alignment.below_properties
+* fit -> BoxFit.below_properties
+
+To make the image to repeat in "X Axis" -> repeat:ImageRepeat.repeatX
+
+To make the image to repeat in "Y Axis" -> repeat:ImageRepeat.repeatY
+
+To make the image to repeat in whole page -> repeat:ImageRepeat.repeat
+
+To Align the image at a particular position :
+	topLeft
+	topCenter
+	topRight
+	centerLeft
+	center
+	centerRight
+	bottomLeft
+	bottomCenter
+	bottomRight
+
+Use -> alignment: Alignment.above_properties
+
+To make the image to fit to the box : " fit: BoxFit.fill / cover / contain / fitWidth / fitHeight "
+
+
+2. IMAGE NETWORK:
+-----------------
+# It is used to display images that are fetched from the internet using URL
+
+# Providing image url as a argument to the Image.network Constructor
+
+PROPERTIES:
+-----------
+* Height
+* Width
+* Color
+* alignment -> Alignment.below_properties
+* fit -> BoxFit.below_properties
+* errorBuilder->(BuildContext c,Object error,StackTrace? s)
+	{
+		return child: Text("No such image");
+	}
+	
+
+3. IMAGE FILE:
+---------------
+# It is a constructor widget that displays an image from a file on a device storage.
+
+
+
+DAY 8 - TRAINING - 06/6/2025
+==============================
+
+ROUTING:
+----------
+# It refers to the process of navigating b/w diff screens or pages within an application
+
+# It is managed through Navigator Class , 
+
+# It provides logical flow for the applications
+
+METHODS:
+---------
+	Navigate to the second route using Navigator.push().
+	Return to the first route using Navigator.pop().
+
+How to use:
+------------
+Navigator class has a push method to Navigate to the next screen:
+
+" Navigator.push(context,MaterialPageRoute(builder: (context) => NextPage())); "
+
+
+Return to the first route using Navigator.pop():
+
+" Navigator.pop(context); "
+
+Navigation in Flutter using Navigator class:
+==============================================
+
+Purpose:
+Used to move from one screen to another and come back.
+
+METHODS:
+
+    Navigator.push()
+    👉 Used to navigate to the next screen (second page).
+
+    Navigator.pop()
+    👉 Used to go back to the previous screen (first page).
+
+USAGE:
+-------
+✅ To go to the second page
+-----------------------------
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => SecondPage()),
+);
+
+✔ This will push the SecondPage on top of the navigation stack.
+
+✅ To return to the previous page
+---------------------------------
+Navigator.pop(context);
+
+✔ This will pop the current page and return to the previous screen.
+
+EXAMPLE:
+------------
+🟢 First Page (Home Page)
+----------------------------
+ElevatedButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SecondPage()),
+    );
+  },
+  child: Text("Go to Second Page"),
+);
+
+🟠 Second Page
+----------------
+ElevatedButton(
+  onPressed: () {
+    Navigator.pop(context);
+  },
+  child: Text("Go Back"),
+);
+
+FLOW:
+--------
+➡ Home Page
+      |
+      | (Navigator.push)
+      ↓
+➡ Second Page
+      ↑
+      | (Navigator.pop)
+      |
+⬅ Back to Home Page
+
+
+NAMED ROUTES:
+-------------
+
+METHODS:
+---------
+✅ Navigate to the second route using Navigator.pushNamed()
+✅ Return to the first route using Navigator.pop()
+
+💡 HOW TO USE:
+---------------
+
+🟢 To navigate to a new screen using named route:
+
+Navigator.pushNamed(context, '/second');
+
+🔙 To go back to the previous screen:
+
+Navigator.pop(context);
+
+🧩 ROUTE SETUP:
+-------------------
+In the MaterialApp, define all the routes using the routes property:
+
+MaterialApp(
+  initialRoute: '/',
+  routes: {
+    '/': (context) => HomePage(),
+    '/second': (context) => SecondPage(),
+  },
+);
+
+✅ Example Structure:
+-----------------------
+main.dart:
+------------
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/second': (context) => SecondPage(),
+      },
+    );
+  }
+}
+
+home_page.dart:
+-----------------
+ElevatedButton(
+  onPressed: () {
+    Navigator.pushNamed(context, '/second');
+  },
+  child: Text("Go to Second Page"),
+);
+
+second_page.dart:
+-------------------
+ElevatedButton(
+  onPressed: () {
+    Navigator.pop(context);
+  },
+  child: Text("Go Back"),
+);
+
+
+DAY 9 - TRAINING - 09/6/2025
+==============================
+
+TEXTFIELD WITH STATELESS WIDGET:
+----------------------------------
+
+# The TextField widget has various callback properties through which we can extract text
+
+# CallBack functions:
+	onChanged
+	onTap
+	onSubmitted
+	onEditingComplete
+	
+PROPERTIES:
+------------
+1. decoration -> InputDecoration()
+2. style -> TextStyle(All the text styling)
+3. textDirection -> TextDirection.ltr/rtl
+4. keyboardType -> TextInputType.number/text
+5. obscureText -> boolean -> to make text to be hidden like in password we can use this	
+6. maxLines
+7. maxLength	
+
+
+1. decoration -> InputDecoration()
+-----------------------------------
+Properties:
+--------------
+* icon
+* hintText
+* hintTextDirection -> TextDirection.ltr/rtl
+* prefixIcon
+* suffixIcon
+* prefix -> takes widget eg:Container()
+* prefixText
+* suffixText
+* labelText
+* floatingLabelBehavior -> Floatinglabelbehavior.always/auto/none
+* border -> InputBorder.none
+       -> OutlineInputBorder()
+       -> UnderlineInputBorder()
+       -> OutlineInputBorder -> (borderRadius:BorderRadius.circular(double radius))
+                             -> (borderSide:BorderSide(color:/width:/style:))
+* filled -> true                            
+* fillColor -> make filled as true and then give color for this                        
+
+
+body->column->children[]->TextField->all properties mentioned above	
+	
+	
+STATEFUL WIDGET:
+-----------------
+A Stateful Widget has its mutable state that it needs to track. It is modified according to the user's input.
+
+SYNTAX:
+--------
+class MyApp extends StatefulWidget {
+    const MyApp({Key? key}) : super(key: key);
+    
+    @override
+    State<MyApp> createState() => _MyAppState();
+}
+    
+class _MyAppState extends State<MyApp> {
+        @override
+        Widget build(BuildContext context) {
+            return Container();
+        }
+}
+	
+TEXTFIELD WITH STATEFUL WIDGET:
+-------------------------------	
+
+1. create stateful widget using -> stful
+
+2. Make " bool isSelected = true; "
+
+3. Assign obscureText = isSelected
+
+4. In the decoration -> InputDecoration() -> 
+      suffixIcon : 
+ 		IconButton( onPressed : ()
+ 		{
+ 			setState((){
+ 				isSelected = !isSelected;
+ 			})
+ 	        },
+ 	       
+               icon: isSelected ? Icon(Icons.security) : Icon(Icons.remove_red_eye_outlined)
+               
+               )
+
+
+Final Result:
+--------------
+    # When you tap the icon → it changes.
+
+    # Password hides/unhides in real time.
+
+    # This is only possible using StatefulWidget because it allows UI to update using setState().
+
+
+
+DAY 10 - TRAINING - 10/6/2025
+==============================
+
+TEXTFIELD -> controller :
+---------------------------
+✅ It is used inside a stateful widget
+
+✅ Allows you to retrieve, modify, or clear the text entered by the user
+
+✅ Works with both TextField and TextFormField
+
+STEPS:
+----------
+1. Instantiating the Controller
+->->->->->->->->->->->->->->->->
+
+In the state class:
+
+	TextEditingController myController = TextEditingController();
+
+Use this controller to control and access the text.
+
+2. Assigning the Controller
+->->->->->->->->->->->->->->
+
+In TextField:
+-------------
+TextField(
+  controller: myController,
+  decoration: InputDecoration(labelText: "Enter text"),
+)
+
+
+3. Reading the Text
+->->->->->->->->->->->->->->
+
+String enteredText = myController.text;
+
+4. Disposing the Controller
+->->->->->->->->->->->->->->
+
+Always dispose of it to prevent memory leaks:
+
+@override
+void dispose() {
+  myController.dispose();
+  super.dispose();
+}
+
+1. home -> scaffold -> column -> children -> TextField -> controller
+
+2. Instantiating of TextEditingContoller
+
+3. home -> scaffold -> column -> children -> TextFormField -> controller
+
+	In the TextFormField -> Additional properties is " Validator "
+	
+TEXTFORMFIELD -> CONTROLLER
+---------------------------
+
+What is TextFormField?
+->->->->->->->->->->->->->
+    * Advanced version of TextField
+    * Supports built-in form validation
+    * Used inside a Form widget
+
+🔑 Purpose of GlobalKey<FormState>:
+->->->->->->->->->->->->->->->->->->->
+    * Tracks the state of the form
+    * Required to validate() or reset() the form
+
+🧱 STRUCTURE & STEPS
+->->->->->->->->->->->->->
+
+1. Form Widget with GlobalKey
+-----------------------------
+final _formKey = GlobalKey<FormState>();  // Declare the key
+
+Wrap your inputs in a Form and assign the key:
+
+Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      // Add TextFormFields here
+    ],
+  ),
+)
+
+2. TextFormField with Controller + Validator
+--------------------------------------------
+TextEditingController controller = TextEditingController();
+
+TextFormField(
+  controller: controller,
+  decoration: InputDecoration(
+    labelText: "Enter Username",
+    border: OutlineInputBorder(),
+  ),
+  validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your username';
+    }
+    return null;
+  },
+)
+
+3. Validating the Form on Button Press
+---------------------------------------
+ElevatedButton(
+  onPressed: () {
+    if (_formKey.currentState!.validate()) {
+      // Input is valid
+      String username = controller.text;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Username is: $username")),
+      );
+    }
+  },
+  child: Text("Submit"),
+)
+
+4. Clear Text
+--------------
+controller.clear();
+
+5. Dispose Controller in StatefulWidget
+----------------------------------------
+@override
+void dispose() {
+  controller.dispose();
+  super.dispose();
+}
+
+
+
+SCAFFOLDMESSENGER:
+--------------------
+It is used to show snack bars, material banners, or other transient UI elements related to the Scaffold
+
+Why use ScaffoldMessenger?
+->->->->->->->->->->->->->
+    * You can show a SnackBar from outside the Scaffold widget.
+    * It allows for better control when navigating between pages.
+
+✅ What is ScaffoldMessenger?
+->->->->->->->->->->->->->->->->->
+    * It is used to display temporary messages (like SnackBars) at the bottom of the screen
+    * Replaces the older Scaffold.of(context).showSnackBar() approach
+    * More reliable when showing SnackBars after navigation or async actions
+
+🧱 STRUCTURE & USAGE
+->->->->->->->->->->->->->
+
+1. Basic Usage – Showing a SnackBar
+-------------------------------------
+
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("This is a message!"),
+  ),
+);
+
+🧠 This will show a message at the bottom of the screen, inside the current scaffold.
+
+2. Customizing SnackBar
+--------------------------
+
+SnackBar(
+  content: Text("Saved successfully!"),
+  backgroundColor: Colors.green,
+  duration: Duration(seconds: 2),
+  action: SnackBarAction(
+    label: 'Undo',
+    onPressed: () {
+      // Do something
+    },
+  ),
+);
+
+3. Common Use Case – Inside Button
+-----------------------------------
+
+ElevatedButton(
+  onPressed: () {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Button Clicked!")),
+    );
+  },
+  child: Text("Click Me"),
+);
+
+4. Clearing Current SnackBar
+-----------------------------
+ScaffoldMessenger.of(context).clearSnackBars();
+
+This removes any currently visible SnackBar.
+
+
+RADIO BUTTON:
+--------------
+# Stateful widget
+# It allows the user to select only one option from a group of options.
+# In Flutter, it's implemented using the Radio widget along with a shared groupValue.
+
+# home -> Scaffold -> body -> Column -> Children[] 
+
+-> Radio(value,groupValue,onChange),Text("")
+
+		* value: The unique value of the radio option.
+		* groupValue: The current selected value (shared among all options).
+		* onChanged: A callback triggered when the user selects an option onChanged. Updates groupValue using setState() when an option is selected.
+
+
+RADIOLISTTILE:
+----------------
+What is RadioListTile?
+
+    * A combination of Radio and ListTile.
+    * Used to create a radio button with a label that fills the whole tile area.
+    * Tappable anywhere on the tile (not just the radio circle).
+
+Syntax:
+
+RadioListTile(
+  value: ...,           // Unique value for this option
+  groupValue: ...,      // Currently selected value
+  onChanged: ...,       // Callback when selected
+  title: Text("..."),   // Main label
+  subtitle: Text("...") // subtitle label - Optional smaller text below the title.
+  tileColor: Colors.red // applys color for that particular tile
+)
+
+
+Diff b/w Radio And RadioListTile:
+----------------------------------
+
+Radio:
+->->->->
+	* Displays only the radio button.
+	* You need to manually add a Text widget.
+	* Only the radio circle is clickable.
+	
+RadioListTile
+->->->->->->->->
+	* Combines a Radio with a tappable ListTile.
+	* Built-in title, subtitle, secondary text.
+	* Whole tile area is clickable.
+
+
+
+
+DAY 11 - TRAINING - 11/6/2025
+==============================
+
+DROPDOWN BUTTON:
+-----------------
+# It is a widget in Flutter that allows the user to select a single value from a list of dropdown options.
+
+# It shows the currently selected item and opens a dropdown menu to choose another item.
+
+# Used within a StatefulWidget because the selected value usually changes.
+
+# The value property must match one of the values in the items list.
+
+PROPERTIES:
+-----------
+	items
+	onChanged
+	value
+	hint
+	style
+	icon
+	dropdownColor	
+	underline
+
+STEPS:
+-----------
+1. Declare the list of items needed before as a " LIST " eg: banking
+2. Then declare String? isSelected;
+3. home -> scaffold -> body -> 
+
+		DropdownButton(		
+			items:banking.map((e){
+			   return DropdownMenuItem(
+			      value:e,
+			      child:Text(e)
+			   );
+			}).toList(),
+			onChanged:(){
+			   setState((){
+			   	isSelected=e;
+			   }
+		});
+
+⚠️ Notes:
+-------------
+    * Avoid putting it inside a ListView without handling overflow (Expanded, SizedBox, etc.).
+    * value should not be null unless you use null as an item explicitly.
+    
+To give styling for dropdown button use it in the DROPDOWNMENUITEM
+
+PROPERTIES OF DROPDOWNMENUITEM:
+----------------------------------
+	value
+	child
+	alignment
+	padding
+	onPressed
+	
+	
+
+CHECKBOX:
+----------
+
+✅ Checkbox in Flutter
+-----------------------
+📌 Definition:
+----------------
+# It allows users to select or deselect a single option. 
+# It returns a boolean value (true or false).
+
+PROPERTIES:
+-----------
+	value
+	onChanged
+	tristate -> true,false,null
+	activeColor -> Color of the checkbox when checked
+	checkColor -> Color of the check icon inside the box
+
+
+Scaffold -> Column -> Row -> CheckBox(value,onChanged)
+
+
+CHECKBOX LISTTILE:
+--------------------
+✅ CheckboxListTile in Flutter
+--------------------------------
+📌 Definition:
+---------------
+# It is a pre-styled widget that combines a Checkbox with a Text label (and optionally an icon), making it easy to display checkboxes in a list-style format.
+
+PROPERTIES:
+-----------
+value
+onChanged
+title
+subtitle
+activeColor
+checkColor
+
+
+body -> Column -> CheckboxListTile(value,onChanged)
+
+
+
+ASYNCHRONOUS:
+------------
+* Synchronous operations execute tasks sequentially, one after the other, with the program waiting for each task to complete before moving on. 
+
+* Asynchronous operations, conversely, allow tasks to run independently without blocking the main thread, enabling the program to continue executing other operations while waiting for the asynchronous task to complete.
+
+
+KEY CONCEPTS:
++++++++++++++
+async
+await
+future
+
+
+🔹 What is async in Dart?
++++++++++++++++++++++++++++
+* The async keyword in Dart is used to define a function as asynchronous. 
+* This means the function will return a Future and can use the await keyword inside it to pause execution until another Future completes.
+
+🔹 How async Works:
+++++++++++++++++++++++
+    # When you mark a function with async, it becomes a Future-returning function.
+    # You can use await only inside async functions.
+    # await pauses execution until the Future is completed.
+    
+
+FUTURE:
+++++++++
+
+✅ States of a Future:
+
+    1. Uncompleted – The task hasn’t finished yet.
+    2. Completed with a value – The task succeeded.
+    3. Completed with an error – The task failed.
+
+
+
+

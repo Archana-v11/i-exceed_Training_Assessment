@@ -1,0 +1,530 @@
+FLUTTER AND DART TRAINING:
+==============
+
+DART:
+-------
+Day 1 - Training - 19/5/2025
+==============================
+
+Principles :
+------------
+1.SOLID =
+	Single Responsibility Principle
+	Open/Closed Principle
+	Liskov Substitution Principle
+	Interface Segregation Principle
+	Dependency Inversion Principle
+2.YAGNI = "You Aren't Gonna Need It," 
+3.KISS  = "Keep It Simple, Stupid,"
+4.DRY   = "Don't Repeat Yourself,"
+5.TDA   =  "Tell, Don't Ask"
+
+VARIABLES:
+-----------
+var :
+* Use var when the type is clear from the initial assignment and won't change
+dynamic :
+* Use dynamic when the type of variable that can change its value during runtime . 
+* Use dynamic only when necessary and handle potential type mismatches carefully
+
+Note:
+-->-->-->
+* To run dart : "dart class_name.dart"
+* No Float in dart programming
+* Use camelcase for declaring varibale
+* number -> datatype is supported ,declaring as "num"
+* Any type of number type (ie,int,double etc) can be declared as "num")
+* {} is used only for expressions not needed for single string(ie identifier)
+* It supports 2 Compilation - 
+	--> Just-in-Time(JIT)
+	--> Ahead-of-Time(AOT)
+* The $ symbol is used within strings for string interpolation, which means embedding variables or expressions inside a string.
+* If the $ symbol is need to be added with integer eg:&12 then use as "\$21"
+* To move to new line use "\n"
+* ? symbol is used primarily for null safety
+
+OPERATIONS:
+* Operand
+* Operator
+eg : x+y
+        x,y->Operand
+        +  ->Operator
+
+TYPES OF OPERATOR:
+-->-->-->-->-->-->-->
+1. Arithmetic:
+--------------
++ - * / %
+
+2. Relational/Comparator:
+-------------------------
+< --> if the LHS is less than the RHS then output is true
+<= --> if the LHS is less than or equals the RHS output is true
+> --> if the LHS is greater than the RHS then output is true
+>= --> if the LHS is greater than or equals the RHS ,then true
+== --> if LHS is equal to RHS output is true
+!= --> if LHS is not equals to RHS output is true
+
+3. Logical:
+--------------
+AND(&&) -> If any one condition is false,output is false
+OR(||)  -> If any one condition is true,output is true
+NOT(!)  -> Reverses the boolean value of an expression.
+
+4. Type test:
+--------------------
+is  --> Gives boolean value true as output if the object has specific type
+is! --> Gives boolean value false as output if the object has specific type
+as  --> is used for Typecasting. It performs a cast at runtime if the cast is valid else, it throws an error
+
+5. Assignment:
+--------------
+x+=1
+x-=1
+x*=2
+x~/=2
+Prefix: a=++b
+Postfix: a=b++
+Infix: inside 2 operands if there is one operator
+
+6. Bitwise:
+----------------
+&  --> Performs bitwise AND operation on two operands.
+|  --> Performs bitwise OR operation on two operands.
+^  --> Performs bitwise XOR operation on two operands.
+~  --> Performs bitwise NOT operation on one operand.
+<< --> Shifts a in binary representation to b bits to left and inserting 0 from right.
+>> --> Shifts a in binary representation to b bits to the right, preserving the sign bit (inserting 0 for positive numbers and 1 for negative numbers).
+
+7. Ternary/Conditional:
+-----------------------
+int ternary1=10;
+int ternary2=10;
+var result=(ternary1==ternary2)?"Both are equal":"Both are not equal"; 
+print(result);//print "Both are equal"
+
+
+STRING METHODS:
+---------------
+# Declaring : String str="abc";
+# Concatenate : 
+	print(str+"bangalore");
+	String city="cbe";
+	print(str+city);
+# isEmpty :
+	print(city.isEmpty);//false
+# isNotEmpty:
+	print(city.isNotEmpty);//true
+# length:
+	print(city.length);//8
+# hashCode:
+	print(city.hasCode);//return the integer
+# codeUnits: // gives the list of asciii code
+	print(str.codeUnits);//[97,98,99]
+# toLowerCase
+# toUpperCase
+# substring:
+	String str="Welcome to iexceed"
+	print(str.substring(8));//to iexceed
+	print(str.substring(8,11));//to
+# split:
+	String fruits="apple,mango,orange";
+	print(fruits.split(","));
+# trim:
+	String str="        Welcome to";
+	print(str.trim());//Welcome
+# trimLeft
+# trimRight
+# endsWith
+# startsWith
+# contains
+	print(str.contains("to"));//true
+# replaceall
+	print(str.replaceAll("to","you"));//welcome you
+# compareTo
+	1 st greater = +ve
+	2 nd greater = -ve
+	equal = 0
+
+
+
+Day 2 - Training - 20/5/2025
+==============================
+
+CONSTANT:
+---------
+* Constants are objects whose values cannot be changed during the execution of the program
+* const variable must be initialized with values
+* It is a compile time constant
+* we can define constants by using 2 keywords :
+    --> final keyword (run time constant)
+    --> const keyword (compile time constant)
+* Final declararion ==> final data_type variable_name
+* Const declararion ==> const data_type variable_name
+* const :
+	Used for creating compile-time constants, which are evaluated and determined at compile time. `const` values must be known at compile time and cannot change during runtime.
+* final :
+	Used for runtime constants, meaning they are assigned a value at runtime but cannot be changed after that point during program execution.
+
+
+? Symbol in dart:
+-------------------
+* ? symbol is used primarily for null safety 
+* Adding ? after a type means the variable can be null.
+	eg: String? name; // name can be a String or null
+* Without the ?, the variable must not be null
+	eg: String name = 'Alice'; // not nullable
+
+
+FUNCTIONS IN DART:
+---------------------
+* The function is a set of statements that take inputs, do some specific computation and produces output.
+* Functions make it easy to divide the complex program into smaller sub-groups
+* increase the code reusability of the program.
+
+Defining the function:
+----------------------
+return_type func_name(parameters)
+{
+	body of function;
+}
+
+Calling the function:
+---------------------
+func_name(arguments_list);
+
+
+PARAMETERS:
+--------------
+# positional parameter	
+# named parameter
+# named parameter with default values
+# named parameter with required values
+# optional positional parameter
+
+1. Positional Parameter:
+-------------------------
+    * Passed in order without labels.
+    * Declared in the function's parentheses directly.
+    * Required by default.
+
+Example Syntax:
+void greet(String name, int age) { ... }
+
+2. Named Parameter:
+------------------
+    * Enclosed in {} in the function declaration.
+    * Can be passed in any order using parameter names.
+    * Optional by default (nullable unless marked required).
+
+Example Syntax:
+void greet({String? name, int? age}) { ... }
+
+3. Named Parameter with Default Values
+--------------------------------------
+    * Same as named parameters, but with = to provide defaults.
+    * You don’t need to pass them; default values are used if omitted.
+
+Example Syntax:
+void greet({String name = 'Guest', int age = 0}) { ... }
+
+4. Named Parameter with Required Values:
+-----------------------------------------
+    * Marked with the required keyword inside {}.
+    * Must be provided by the caller.
+    * Useful for non-nullable fields.
+
+Example Syntax:
+void greet({required String name, required int age}) { ... }
+
+5. Optional Positional Parameter
+---------------------------------
+    * Enclosed in [] in the function declaration.
+    * Optional and must be passed in order.
+    * Often used with nullable types or default values.
+
+Example Syntax:
+void greet(String name, [int? age]) { ... }
+
+
+Day 3 - Training - 21/5/2025
+==============================
+
+STATEMENTS:
+-----------
+1.IF Statement
+--------------
+Syntax:
+if ( condition )
+{
+  // body of if
+}
+else
+{
+  // body of else
+}
+
+2.ELSE IF Ladder
+----------------
+if ( condition1 )
+{
+   // body of if
+}
+else if ( condition2 )
+{
+   // body of if
+}
+.
+.
+.
+else 
+{
+    // statement
+}
+
+3.NESTED IF Statement
+---------------------
+if ( condition1 )
+{
+    if ( condition2 ){
+            // Body of if
+    }
+    else {
+           // Body of else
+    }
+}
+
+FUNCTIONAL PROGRAMMING:
+------------------------
+* It is a declarative paradigm (ie,it answers "WHAT")
+* Shared Mutable state
+* It treats function as first-class-citizen:
+	# Assigns a function to variable and that variable acts as a function
+	# Pass function as an argument to another function
+	# Return functions from another function
+	
+* Anonymous function also called as lambda function
+
+* Closure function assigning to variable
+
+* Closure function without assigning to variable
+
+* Arrow function or Lambda Expression
+
+Why to use this?
+-----------------
+1. Improved Readability : Functions are self contain and predictable
+2. Easy for debugging and testing : making unit test more simple
+3. Concurrency friendly : Avoid race condition in multithreading
+4. Less Complexity : Less dependency on mutable state and class hierarchies
+
+HIGHER - ORDER FUNCTIONS:
+-------------------------
+# Pass function as an argument to another function
+# Return functions from another function
+
+
+PARAMETER:
+0 parameter - nullary
+1 parameter - unary
+2 parameters - binary
+
+
+Day 4 - Training - 22/5/2025
+==============================
+
+Object Oriented Programming:
+----------------------------
+# Class
+# Objects
+# Constructors
+# Getters and Setters
+
+1.CLASS:
+-------------
+Syntax:
+class class_name
+{
+	fields - variable declared inside class
+	Constructors - block of code that initializes the state and values during object creation.
+	method or functions
+	getters/setters
+}
+
+"For creating a instantiation to class "new" keyword is not necessary"
+
+DECLARING VARIBALE AS PRIVATE:
+------------------------------
+# "While creating a variable , to declare variable as private declare as "_name","_age" Eg: String? _name,int? _age
+# "Private varibale can be accessed from any part of the code,but not from the other file of code" 
+(ie ==> It is not class Protected,It is File Protected)
+
+
+2.GETTERS AND SETTERS:
+----------------------
+# In the getters functions , we can use arrow functions and also use the "get" keyword.
+# Eg: String get getName => name;
+
+3.CONSTRUCTOR:
+--------------
+It have the same name as the class name and don't have any return type. 
+Syntax:
+---------
+class_name( [ parameters ] ){
+    // Body
+}
+
+# Eg: A(){}
+      A(int a,int b){} // this is not correct
+      A.any_name(int a,int b)() // is correct
+
+3 Types:
+--------
+1. Default Constructor
+2. Parameterized Constructor
+3. Named Constructor
+ 
+# Named Constructor:
+---------------------
+As you can't define multiple constructors with the same name, this type of constructor is the solution to the problem. They allow the user to make multiple constructors with a different name.
+
+Declaring named constructors:
+-----------------------------
+class_name.constructor_name ( parameters ){
+          // Body of Constructor
+}
+
+
+EXTENSIONS METHODS:
+-------------------
+# can extend the functionality of the class without modifying the class
+
+Syntax:
+-------
+extension extension_name on class_name
+{
+	return_type method_name(parameters)
+	{
+		statements;
+	}
+}
+// extension_name is not mandatory(used or not necessary)
+
+
+Day 5 - Training - 23/5/2025
+==============================
+
+INHERITANCE:
+-------------
+# Dart doesn't support Multiple Inheritance
+
+# If there is Base Class and Child class , then by declaring object for child class ie instantiation of the child class , dart implicitly call the "Super class Default Constructor".
+
+# Explicitly calling the "Super Class Parameterized Constructor" is done by Dervied class Constructor.
+
+	eg: class person{} // base class
+	    person(String name,int age){}
+	    
+	    class employee{} // derived class
+	    employee(String name,int age):super(name,age) // this explicitly calls the super class parameterized constructor
+	    {
+	    	
+	    }
+	
+
+
+MULTI LEVEL INHERITANCE:
+-------------------------
+# A  class inherits from another class, which is already derived from a parent class.
+# It is a chain of Inheritance
+# A class can be derived by only one Base class
+
+INITIALIZING PARAMETER:
+-----------------------
+Student(
+    {
+    this.name,
+    this.age,
+    this.city
+    }
+  );
+
+
+Day 6 - Training - 26/5/2025
+==============================
+
+DIFF B/W ABSTRACT AND INTERFACE:
+---------------------------------
+
+ABSTRACT:
+------------
+# In an abstract class, the methods declared may or may not be overridden in the subclass.    
+
+# Subclasses use the extends keyword.
+
+
+INTERFACE:
+-----------
+# In an interface (any class used with implements), all methods must be overridden in the implementing class.
+
+# Classes implement interfaces using the implements keyword.
+
+ABSTRACT CLASS:
+-----------------
+# Class is declared with keyword "abstract"
+# But method is not declared as "abstract"
+# Another class is extended using keyword "extends"
+# Instance cannot be created
+# A abstract class can extends the another abstract class
+# A class can extend only one class
+
+Syntax:
+-------
+abstract class class_name
+{}
+
+INTERFACE:
+--------------
+# class is not declared as "interface"
+# Another class is extended using keyword "implements"
+# In dart, there are no direct means to declare an interface, so a declaration of a class is itself considered as a declaration on the interface.
+# A class can extend only one class but can implement as many as you want.
+
+MIXIN :
+-------------
+# has - a - relationship
+# A mixin in Dart is a way to reuse a class's code in multiple class hierarchies
+# It allows you to inject functionality into a class without using inheritance
+# Unlike traditional inheritance, where a class can only inherit from one superclass, a Dart class can use multiple mixins.
+# "DEADLY DIAMOND OF DEATH" - also called as "TRIPLE D PROBLEM"
+
+
+# mixin keyword is used
+
+eg:
+-----
+mixin mixin_name{}
+
+class class_name with mixin_name{}
+
+ON KEYWORD IN MIXINS:
+-----------------------
+# on keyword in mixins is used to restrict which classes a mixin can be applied to.
+# It means: “This mixin can only be used with classes that extend or implement a certain type.”
+
+
+
+Day 7 - Training - 27/5/2025
+==============================
+
+
+
+
+
+
+
+
+
+
+
+
