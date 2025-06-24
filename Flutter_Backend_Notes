@@ -1,0 +1,456 @@
+BACKEND:
+=========
+MYSQL PASSWORD - Password123#@!
+
+Github Password (for 30 days) -> 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
+git branch -> to check it is in our branch
+
+After making changes:
+-----------------------
+git add .
+git commit -m "initial-backend also"
+git push origin team-dharshini
+
+
+DAY 1 - TRAINING - 13/6/2025
+==============================
+
+JSON PARSING:
+---------------
+✔ When this JSON is sent over the network,the entire payload is encoded as string
+✔ Common in apps that fetch data from APIs
+✔ Network-transferred data is serialized (as String)
+✔ Flutter needs data as objects, not strings
+✔ Manual parsing avoids the loss of type safety from dynamic
+✔ Use a custom model class with a factory constructor
+ 
+FACTORY CONSTRUCTOR
+--------------------
+✔ Doesn't access instance variables directly (no `this.name`)
+✔ Creates and returns a new instance using passed data
+✔ Perfect for parsing JSON from Map<String, dynamic>
+✔ Can include logic before returning the object
+
+REST API HTTP GET REQUEST:
+--------------------------
+ What is a REST API?
+
+    * REST = Representational State Transfer.
+    * It's an architectural style for designing networked applications.
+    * REST APIs use HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations (Create, Read, Update, Delete).
+
+What is an HTTP GET Request?
+
+    * GET is one of the most commonly used HTTP methods.
+    * It is used to retrieve data from a server without changing it.
+    * A GET request is idempotent, meaning calling it once or multiple times has the same result (no side effects).
+    
+
+REST API USING HTTP REQUEST IN FLUTTER – STEP-BY-STEP NOTES :
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+✅ Step 1: Create Main Entry File
+----------------------------------
+    • Defined the main() function.
+    • Used MaterialApp and set CallMyApiApp as the home widget.
+    • Used Scaffold for creating the base layout structure.
+
+👉 This launches the app and sets up the initial UI.
+
+
+✅ Step 2: Create StatefulWidget for API Integration
+-----------------------------------------------------------
+     • Created a StatefulWidget named CallMyApiApp.
+     • In the State class, declared a nullable Map<String, dynamic>? data to hold the API response.
+     • Called the API function hitAPI() inside the initState() method to trigger the fetch on app start.
+
+👉 StatefulWidget allows us to update the screen after the data is fetched.
+    
+    
+✅ Step 3: Create a Function to Call the API
+-----------------------------------------------
+     • Created a Future function named hitAPI().
+     • Used http.get() to send a GET request to:
+       		 https://reqres.in/api/users?page=2
+     • Used jsonDecode() to convert the raw JSON string into a Dart Map.
+     • Stored the decoded response in the variable data.
+
+👉 This allows us to read and access API data in Dart format.
+ 
+    
+✅ Step 4: Display Data on the Screen
+--------------------------------------
+    • Used ListView with multiple ListTile widgets.
+    • Displayed data such as first_name and email using Text widgets.
+    • Accessed values from data['data'][index].
+
+👉 This displays the fetched data in a scrollable list format using Flutter widgets.
+    
+
+
+REST API USING HTTP REQUEST WITH MODEL CLASS – STEP-BY-STEP NOTES
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+✅ Step 1: Create Main Entry File
+------------------------------------
+    • Defined the main() function.
+    • Used MaterialApp with a Scaffold.
+    • Set MyModelApi as the home widget of the app.
+
+👉 This initializes the app and sets up the starting point.
+
+
+✅ Step 2: Create a StatefulWidget for API Integration
+-------------------------------------------------------
+    • Created a StatefulWidget called MyModelApi.
+    • Override the initState() method to call the API as soon as the widget loads.
+    • The API call is made using a custom function called getApi().
+
+👉 StatefulWidget is used so we can update the UI once data is fetched.
+
+
+✅ Step 3: Create a Function to Call the API
+-------------------------------------------------
+    • Defined a Future function getApi() to perform the HTTP GET request.
+    • Used http.get() to request data from https://jsonplaceholder.typicode.com/users.
+    • Decoded the response using jsonDecode() to convert JSON into a Dart list.
+    • Created an empty list l of type User.
+
+👉 This is the preparation step to handle data in a structured format using model class.
+
+✅ Step 4: Convert JSON Data to Model Class
+-------------------------------------------
+    • Iterated through the decoded JSON list using a for loop.
+    • For each item, created a User object with values: name, email, and username.
+    • Added each User object to the list l.
+    • Returned the complete list of User objects.
+
+
+👉 This step transforms raw JSON into structured Dart objects using a model class.
+
+✅ Step 5: Create a Model Class for the User
+----------------------------------------------
+    • A separate file User.dart contains a User class with three fields:
+    		name, email, and username.
+    • Constructor is used to initialize these fields.
+
+👉 This model class helps manage data cleanly and makes UI mapping easier.
+
+
+✅ Step 6: Display Data on Screen Using FutureBuilder
+------------------------------------------------------
+    • Used FutureBuilder to handle the asynchronous data returned by getApi().
+    • Checked for snapshot.data and displayed the user data using ListView.builder.
+    • Used ListTile to show each user's name and email.
+
+👉 FutureBuilder makes it easier to build the UI after the async function completes.
+
+
+DAY 2 - TRAINING - 16/6/2025
+==============================    
+    
+NODE.JS:
+----------
+# powerful and scalable javascript runtime environment  
+
+STEPS:
+------
+In Android Studio:
+
+	mkdir backend
+	 
+	cd backend
+	 
+	npm init -y
+	
+	npm install express
+	 
+	npm install express cors
+	 
+	npm install body-parser
+	 
+	create a file called index.js
+	
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const app = express();
+const PORT = 3000;
+app.use(cors());
+app.use(bodyParser.json());
+// In-memory data (you can later use MongoDB or any database)
+let products = [
+  { id: 1, title: 'Sample Product', description: 'A great product', price: 9.99 }
+];
+// GET all products
+app.get('/products', (req, res) => {
+  res.json(products);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+ 
+	Run in the terminal -> node index.js
+    
+    
+    
+DAY 3 - TRAINING - 17/6/2025
+==============================     
+    
+MONGO-DB:
+--------------
+    
+🟢 What is MongoDB?
+----------------------
+    * MongoDB is a NoSQL database that stores data in JSON format.
+    * It’s schema-less, meaning each document can have different fields.
+    * It uses a structure of databases, collections, and documents.
+
+STEPS:
+
+npm init -y
+
+npm i express mongoose
+
+in the package.json -> inside script ->
+					 "start":"node index.js"
+					 "dev":"nodemon index.js"
+   add this 2 script line
+
+create index.js file and write the code
+
+In terminal , npm run start -> after writing index.js code
+
+Create folder named as db -> and file named as connectDb.js
+
+Then write the code in created file
+
+create .env file
+	In that file 
+		MONGO_URI=(connection string line add here)
+		
+In terminal , npm i dotenv
+
+In index.js add this 2 lines
+	require('dotenv').config
+	console.log(process.env.MONGO_URI)
+	
+In terminal , npm start or npm run dev 
+
+In the mongo db atlas -> left side -> Network Access -> Add ip address click -> and then click allow access from anywhere -> click confirm
+
+And delete the already existed ip address
+
+Create a folder named model in project -> file named index.model.js for us product.js and review.js
+
+Download Postman from browser -> Collections -> New -> HTTP	
+	Make as POST -> give http link -> In the Body -> raw -> JSON -> write the JSON Code
+	
+Now after that If error comes in Postman -> In index.js -> write the line
+	app.use(express.json());
+	
+After that , in the Terminal , npm run start
+		
+
+		
+DAY 4 - TRAINING - 18/6/2025
+==============================    
+
+CONNECTING FLUTTER APP WITH MYSQL:
+-----------------------------------
+Creating Server:
+---------------
+
+Node JS:
++++++++++++
+  It is a runtime environment that allows Javascript to be executed server-side.
+
+Express JS:
++++++++++++
+  It is a web application framework for Node.js.
+  It simplifies tasks like routing,handling HTTP requests and responses and managing middleware.
+		
+		
+STEPS:
+------
+npm install express
+
+npm install mysql2
+
+create a file named main.js and write the code	
+		
+In the mysql workbench , 
+	create schema employee;
+	use employee;
+	create table emp(id int,name varchar(20),department varchar(20));
+	
+Then in the main.js write the mysql workbench hostname,user,password,database name
+
+In the main.js write the query
+
+Download Postman from browser -> Collections -> New -> HTTP	
+	Make as POST -> give http link -> In the Body -> raw -> JSON -> write the JSON Code
+	
+	And now it works 		
+		
+		
+		
+DAY 5 - TRAINING - 19/6/2025
+==============================    		
+		
+ISOLATES IN FLUTTER:
+-----------------------
+# Isolates are a way to run code on a separate thread so you can perform heavy or blocking operations without freezing the main UI thread.
+
+# It is a way to achieve concurrency, allowing you to run code in parallel without sharing memory, which helps avoid race conditions and simplifies management		
+		
+
+What is an Isolate?
+---------------------
+    * Dart code runs on a single thread by default (the main isolate).
+    * An Isolate is a separate thread of execution with its own memory heap.
+    * Isolates do not share memory; they communicate by passing messages.
+    * Useful for CPU-intensive tasks like parsing JSON, image processing, or heavy computations. 
+    * ReceivePort — a communication channel for receiving messages from the spawned isolate.  
+    
+    
+Why use Isolates?
+-------------------
+    * Flutter UI is single-threaded.
+    * If you do heavy processing on the main thread, your UI will lag or freeze.
+    * Using isolates allows running expensive tasks in the background without blocking UI.    
+    
+   
+DAY 6 - TRAINING - 20/6/2025
+==============================       
+    
+PROVIDER:
+-----------
+It is a popular state management solution that simplifies the process of sharing and updating data across widgets    
+    
+KEY CONCEPTS:
+-------------
+	ChangeNotifier -> that allows you to define mutable state and notify listeners when the state changes.
+	
+	ChangeNotifierProvider -> A widget that provides an instance of a ChangeNotifier
+	
+	Provider.of() -> A method that allows you to access the nearest ChangeNotifierProvider in the widget tree from within a widget   
+    
+ 
+    
+DAY 7 - TRAINING - 22/6/2025
+==============================       
+
+CORE DEFINITIONS:
+------------------
+
+1. Riverpod
++++++++++++
+
+    Riverpod is a state management tool for Flutter.
+    It helps you manage app state outside the widget tree, which means your logic and UI are cleanly separated.
+    It is reactive – the UI updates automatically when the state changes.
+
+2. Provider
++++++++++++
+
+    A Provider is a definition of a piece of state or logic.
+    Example: you can define a counter, a user model, or data from an API.
+    You can watch or read it from your widgets.
+    Think of it as: "What you want to manage or share in the app."
+
+3. ProviderScope
++++++++++++++++++
+
+    ProviderScope is a special widget that wraps your entire app.
+    It is required to use Riverpod.
+    It stores the state of all the providers and allows overriding if needed.
+    Think of it as: "The place where all providers live and work."
+    
+
+Stateless & Stateful Widgets in Riverpod:
+-------------------------------------------
+
+4. ConsumerWidget (Stateless)
+++++++++++++++++++++++++++++++
+    A widget that lets you access providers in a StatelessWidget.
+    You use ref.watch() or ref.read() to use providers.
+
+5. Consumer (Widget wrapper)
++++++++++++++++++++++++++++++++
+    A widget that gives you ref inside its builder.
+    Useful when you want to access providers inside any widget, even if it's not a ConsumerWidget.
+
+6. ConsumerStatefulWidget
+++++++++++++++++++++++++++
+    A StatefulWidget version of ConsumerWidget.
+    Lets you access providers with lifecycle methods like initState() and dispose().
+    
+
+Quick Memory Trick:
+-------------------
+
+    Provider = "What I want to manage"
+    ProviderScope = "Where my providers live"
+    ConsumerWidget = "Stateless UI that watches provider"
+    Consumer = "Inline version to watch provider"
+    ConsumerStatefulWidget = "Stateful widget that watches provider + uses initState"    
+ 
+ 
+ 
+STATEPROVIDER:
+--------------
+Provider is used for immutable objects or values
+StateProvider is used for expose and modify a mutable values
+
+Purpose:
++++++++++
+    Used to expose and manage mutable state (values that can change over time).
+
+Difference from Provider:
+++++++++++++++++++++++++++
+    Provider is for immutable (unchanging) data or logic.
+
+    StateProvider allows reading and modifying the state value.
+
+How it works:
+++++++++++++++
+    It holds a single piece of mutable state internally, which you can read or update.
+
+Typical use cases:
+++++++++++++++++++
+        Simple counters
+        Toggle switches (e.g., dark mode on/off)
+        Any small variable that changes in the app
+
+Usage in Riverpod:
++++++++++++++++++++
+        Access current value using ref.watch(stateProvider)
+        Update value using ref.read(stateProvider.notifier).state = newValue or state++
+
+
+KEY CONCEPTS:
+----------------
+listen()
+read()
+watch()
+invalidate()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+    
